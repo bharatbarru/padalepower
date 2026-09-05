@@ -2,5 +2,8 @@ User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /_next/
+Disallow: /admin
 
+# Canonical sitemap (submit this URL to Search Console)
 Sitemap: https://padalaepower.in/sitemap.xml
+Host: padalaepower.in
