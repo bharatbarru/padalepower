@@ -1,6 +1,10 @@
-'use client';
-
 import React, { useState } from 'react';
+import { COMPANY_CONFIG } from '../config/companyConfig';
+
+export const metadata = {
+  title: `${COMPANY_CONFIG.name} — Generator & Electrical Servicing in Visakhapatnam`,
+  description: `${COMPANY_CONFIG.name} provides precision generator engine maintenance, alternator servicing, AVR testing, diagnostics, overhauling, and AMC solutions in Visakhapatnam. Contact ${COMPANY_CONFIG.phone} for service.`,
+};
 import { Navbar } from '../components/Navbar';
 import { Hero } from '../components/Hero';
 import { AboutUs } from '../components/AboutUs';
