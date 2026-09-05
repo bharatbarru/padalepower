@@ -1,0 +1,46 @@
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+/functions/node_modules
+
+# Next.js Build & Output
+/.next/
+/out/
+/build
+/dist
+
+# Production & Debug Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+firebase-debug.log*
+firestore-debug.log*
+ui-debug.log*
+
+# Environment Variables & Secrets
+.env
+.env*.local
+.env.production
+*.pem
+
+# Firebase & Deployment Cache
+/.firebase/
+.service-account.json
+serviceAccountKey.json
+
+# IDE & Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS & System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Workspace Scratch & Antigravity Cache
+/scratch/
+/.gemini/

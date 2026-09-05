@@ -1,0 +1,13 @@
+{
+  "name": "PADALA E-POWER - Generator Engine & Electrical Servicing",
+  "short_name": "PADALA E-POWER",
+  "description": "Specialized engineering firm delivering high-precision generator engine maintenance, electrical servicing, repair, diagnostics, overhauling, and AMC solutions in Visakhapatnam, Andhra Pradesh.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#091124",
+  "theme_color": "#091124",
+  "icons": [
+    { "src": "/icon.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

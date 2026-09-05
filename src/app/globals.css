@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+:root {
+  --font-display: 'Cinzel', Georgia, serif;
+  --brand-green: #0c9b54;
+  --brand-green-deep: #0a7a43;
+  --brand-green-soft: #eafaf1;
+  --brand-yellow: #f4c95d;
+  --brand-yellow-deep: #d9a82b;
+  --ink-900: #0f172a;
+  --ink-800: #1e293b;
+  --ink-700: #334155;
+  --ink-500: #64748b;
+  --line: rgba(15, 23, 42, 0.1);
+  --panel: rgba(255, 255, 255, 0.72);
+  --shadow-soft: 0 24px 80px rgba(15, 23, 42, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(12, 155, 84, 0.10), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(244, 201, 93, 0.14), transparent 28%),
+    #f5f7f6;
+  color: var(--ink-900);
+  font-family: var(--font-sans), sans-serif;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display), sans-serif;
+    letter-spacing: -0.04em;
+    line-height: 1.08;
+  }
+
+  a,
+  button {
+    @apply transition-all duration-300;
+  }
+}
+
+@layer utilities {
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes floatDelayed {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(10px);
+    }
+  }
+
+  @keyframes glowPulse {
+    0%,
+    100% {
+      opacity: 0.6;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.08);
+    }
+  }
+
+  @keyframes shine {
+    from {
+      transform: translateX(-120%);
+    }
+    to {
+      transform: translateX(220%);
+    }
+  }
+
+  .animate-float {
+    animation: float 5s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: floatDelayed 5.8s ease-in-out infinite 0.8s;
+  }
+
+  .animate-glow {
+    animation: glowPulse 5s ease-in-out infinite;
+  }
+
+  .animate-shine {
+    animation: shine 2.5s ease-in-out infinite;
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .section-shell {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+  }
+
+  /* Hide scrollbars but keep scrolling functional */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none; /* WebKit */
+  }
+
+  /* Utility to force smooth snap scrolling and snapping behavior */
+  .snap-scroll {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+  }
+
+  .snap-item {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    transition: transform 420ms cubic-bezier(.2,.9,.2,1), opacity 420ms ease;
+  }
+}

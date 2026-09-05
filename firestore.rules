@@ -1,0 +1,31 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Service Requests Collection (Service Requests, AMC Enquiries & Contact Enquiries)
+    match /service_requests/{requestId} {
+      // Anyone can submit a service request or enquiry
+      allow create: if request.resource.data.fullName != null 
+                    && request.resource.data.phone != null;
+                    
+      // Only authenticated admin owners can view, update or delete requests
+      allow read, update, delete: if request.auth != null;
+    }
+    
+    // Customer Feedback Collection
+    match /feedback/{feedbackId} {
+      // Anyone can submit customer feedback
+      allow create: if request.resource.data.name != null 
+                    && request.resource.data.rating >= 1 
+                    && request.resource.data.rating <= 5;
+                    
+      // Public can read approved testimonials with permission granted
+      allow read: if resource.data.status == 'approved' 
+                  && resource.data.testimonialPermission == true
+                  || request.auth != null;
+                  
+      // Only authenticated admin owners can approve, reject, or delete feedback
+      allow update, delete: if request.auth != null;
+    }
+  }
+}
