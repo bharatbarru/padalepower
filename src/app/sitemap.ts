@@ -1,7 +1,8 @@
 import { MetadataRoute } from 'next';
+import { COMPANY_CONFIG } from '../config/companyConfig';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://padalaepower.com';
+  const baseUrl = COMPANY_CONFIG.siteUrl;
   const lastModified = new Date();
 
   return [

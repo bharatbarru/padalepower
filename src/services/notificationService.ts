@@ -1,4 +1,5 @@
 import { ServiceRequest, CustomerFeedback } from '../types';
+import { COMPANY_CONFIG } from '../config/companyConfig';
 
 /**
  * Client-Side Notification Dispatch Helper
@@ -13,7 +14,7 @@ export const triggerOwnerNotification = async (
   data: ServiceRequest | CustomerFeedback
 ) => {
   const webhookUrl = process.env.NEXT_PUBLIC_OWNER_NOTIFICATION_WEBHOOK_URL;
-  const ownerEmail = process.env.NEXT_PUBLIC_OWNER_EMAIL || "info@padalaepower.com";
+  const ownerEmail = process.env.NEXT_PUBLIC_OWNER_EMAIL || COMPANY_CONFIG.email;
   
   console.info(`[OWNER NOTIFICATION] New ${type} logged:`, {
     timestamp: new Date().toISOString(),

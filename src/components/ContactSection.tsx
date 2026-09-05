@@ -51,6 +51,7 @@ export const ContactSection: React.FC = () => {
                   src="/images/contact_logo.jpg"
                   alt="PADALA E-POWER Logo"
                   fill
+                  sizes="(max-width: 640px) 180px, (max-width: 768px) 220px, 220px"
                   className="object-contain object-left p-1"
                 />
               </div>

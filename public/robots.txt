@@ -1,6 +1,6 @@
 User-agent: *
-Allow': /
+Allow: /
 Disallow: /api/
 Disallow: /_next/
 
-Sitemap: https://padalaepower.com/sitemap.xml
+Sitemap: https://padalaepower.in/sitemap.xml

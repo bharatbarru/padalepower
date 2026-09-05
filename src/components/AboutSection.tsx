@@ -50,6 +50,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onRequestServiceModa
                     alt="PADALA E-POWER Engine Servicing Workshop"
                     fill
                     priority
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover group-hover:scale-108 transition-transform duration-700"
                   />
 

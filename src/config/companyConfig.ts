@@ -15,6 +15,10 @@ export const COMPANY_CONFIG = {
   tagline: "POWERING YOUR BUSINESS, EVERYDAY",
   shortDescription: "Specialized engineering firm delivering high-precision generator engine maintenance, electrical servicing, repair, diagnostics, overhauling, and AMC solutions.",
   logoUrl: "/images/logo.png",
+  // Primary site URL (use your canonical domain)
+  siteUrl: 'https://padalaepower.in',
+  // Optional social handles
+  twitterHandle: '@padalaepower',
   
   // Official Phone & WhatsApp Numbers
   phone: "+91 96031 09512",

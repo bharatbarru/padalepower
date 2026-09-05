@@ -101,6 +101,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAdminModal, onRequestServi
                 alt="PADALA E-POWER Logo"
                 fill
                 priority
+                sizes="(max-width: 640px) 180px, (max-width: 768px) 230px, (max-width: 1024px) 280px, (max-width: 1280px) 320px, 320px"
                 className="object-contain object-left"
               />
             </div>

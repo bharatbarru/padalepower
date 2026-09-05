@@ -39,7 +39,8 @@ export const Footer: React.FC<FooterProps> = ({ onRequestService }) => {
                 src="/images/footer_logo.jpg"
                 alt="PADALA E-POWER Logo"
                 fill
-                className="object-contain object-left"
+                  sizes="(max-width: 640px) 224px, (max-width: 1024px) 288px, 288px"
+                  className="object-contain object-left"
               />
             </div>
 
@@ -124,6 +125,7 @@ export const Footer: React.FC<FooterProps> = ({ onRequestService }) => {
                 src="/images/footer_logo.jpg"
                 alt="PADALA E-POWER Logo"
                 fill
+                sizes="(max-width: 640px) 224px, 288px"
                 className="object-contain"
               />
             </div>

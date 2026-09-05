@@ -12,7 +12,7 @@ admin.initializeApp();
  * Prioritizes process.env secrets, then fallback environment variables.
  */
 function getEmailConfig() {
-  const ownerEmail = process.env.OWNER_EMAIL || "info@padalaepower.com";
+  const ownerEmail = process.env.OWNER_EMAIL || "services@padalaepower.in";
   const servicesEmail = process.env.SERVICES_EMAIL || "services@padalaepower.in";
   const smtpHost = process.env.SMTP_HOST || "smtp.gmail.com";
   const smtpPort = parseInt(process.env.SMTP_PORT || "465", 10);

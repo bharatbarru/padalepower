@@ -14,7 +14,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://padalaepower.com'),
+  metadataBase: new URL(COMPANY_CONFIG.siteUrl),
   title: {
     default: `${COMPANY_CONFIG.name} - Generator Engine & Electrical Servicing | Visakhapatnam`,
     template: `%s | ${COMPANY_CONFIG.name}`,
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     'AVR calibration Visakhapatnam',
     'load bank testing Visakhapatnam',
   ].join(', '),
-  authors: [{ name: COMPANY_CONFIG.name, url: 'https://padalaepower.com' }],
+  authors: [{ name: COMPANY_CONFIG.name, url: COMPANY_CONFIG.siteUrl }],
   creator: COMPANY_CONFIG.name,
   publisher: COMPANY_CONFIG.name,
   formatDetection: {
@@ -68,11 +68,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${COMPANY_CONFIG.name} - Generator Engine & Electrical Servicing`,
     description: `${COMPANY_CONFIG.shortDescription} High-precision generator engine maintenance, electrical servicing, repair, diagnostics, overhauling, and AMC solutions in Visakhapatnam, Andhra Pradesh.`,
-    url: 'https://padalaepower.com',
+    url: COMPANY_CONFIG.siteUrl,
     siteName: COMPANY_CONFIG.name,
     images: [
       {
-        url: '/images/hero_engine_indian.png',
+        url: `${COMPANY_CONFIG.siteUrl}/images/hero_engine_indian.png`,
         width: 1200,
         height: 630,
         alt: `${COMPANY_CONFIG.name} - Industrial Generator Engine Workshop Facility`,
@@ -85,8 +85,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: `${COMPANY_CONFIG.name} - Generator Engine & Electrical Servicing`,
     description: COMPANY_CONFIG.shortDescription,
-    images: ['/images/hero_engine_indian.png'],
-    creator: '@padalaepower',
+    images: [`${COMPANY_CONFIG.siteUrl}/images/hero_engine_indian.png`],
+    creator: COMPANY_CONFIG.twitterHandle || '@padalaepower',
   },
   manifest: '/site.webmanifest',
   icons: {
@@ -109,12 +109,12 @@ export default function RootLayout({
     '@graph': [
       {
         '@type': ['LocalBusiness', 'ProfessionalService'],
-        '@id': 'https://padalaepower.com/#organization',
+        '@id': `${COMPANY_CONFIG.siteUrl}/#organization`,
         'name': COMPANY_CONFIG.name,
         'alternateName': 'Padala E Power Generator Engine Workshop',
-        'url': 'https://padalaepower.com',
-        'logo': 'https://padalaepower.com/images/logo.png',
-        'image': 'https://padalaepower.com/images/hero_engine_indian.png',
+        'url': COMPANY_CONFIG.siteUrl,
+        'logo': `${COMPANY_CONFIG.siteUrl}${COMPANY_CONFIG.logoUrl}`,
+        'image': `${COMPANY_CONFIG.siteUrl}/images/hero_engine_indian.png`,
         'description': COMPANY_CONFIG.shortDescription,
         'telephone': COMPANY_CONFIG.phoneClean,
         'email': COMPANY_CONFIG.email,
@@ -254,20 +254,20 @@ export default function RootLayout({
       },
       {
         '@type': 'WebSite',
-        '@id': 'https://padalaepower.com/#website',
-        'url': 'https://padalaepower.com',
+        '@id': `${COMPANY_CONFIG.siteUrl}/#website`,
+        'url': COMPANY_CONFIG.siteUrl,
         'name': COMPANY_CONFIG.name,
         'description': `${COMPANY_CONFIG.name} - Generator Engine & Electrical Servicing`,
-        'publisher': { '@id': 'https://padalaepower.com/#organization' },
+        'publisher': { '@id': `${COMPANY_CONFIG.siteUrl}/#organization` },
         'inLanguage': 'en-IN',
       },
       {
         '@type': 'WebPage',
-        '@id': 'https://padalaepower.com/#webpage',
-        'url': 'https://padalaepower.com',
+        '@id': `${COMPANY_CONFIG.siteUrl}/#webpage`,
+        'url': COMPANY_CONFIG.siteUrl,
         'name': `${COMPANY_CONFIG.name} - Generator Engine & Electrical Servicing in Visakhapatnam`,
-        'isPartOf': { '@id': 'https://padalaepower.com/#website' },
-        'about': { '@id': 'https://padalaepower.com/#organization' },
+        'isPartOf': { '@id': `${COMPANY_CONFIG.siteUrl}/#website` },
+        'about': { '@id': `${COMPANY_CONFIG.siteUrl}/#organization` },
         'inLanguage': 'en-IN',
       },
     ],

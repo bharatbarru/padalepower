@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next';
+import { COMPANY_CONFIG } from '../config/companyConfig';
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -7,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/', '/_next/', '/admin'],
     },
-    sitemap: 'https://padalaepower.com/sitemap.xml',
+    sitemap: `${COMPANY_CONFIG.siteUrl}/sitemap.xml`,
   };
 }
