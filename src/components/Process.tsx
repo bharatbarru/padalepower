@@ -123,12 +123,12 @@ export const Process: React.FC = () => {
         </div>
 
         {/* New Interactive Stepper Design */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center md:min-h-[620px]">
           {/* Left: large sticky image */}
-          <div className="col-span-1 hidden md:flex items-start">
+          <div className="col-span-1 hidden md:flex items-center justify-center">
             <div className="w-full max-w-[520px] sticky top-28">
               <Image
-                src="/images/timeline.png"
+                src="/images/machine.avif"
                 alt="Service timeline"
                 width={520}
                 height={600}
@@ -139,18 +139,18 @@ export const Process: React.FC = () => {
           </div>
 
           {/* Right: interactive single-card stepper */}
-          <div className="col-span-1 flex flex-col gap-6">
-            <div className="relative">
-              <div className="bg-white rounded-3xl p-8 shadow-lg border border-slate-200">
-                <div className="flex items-start gap-6">
-                  <div className="w-16 h-16 rounded-full bg-green-600 flex items-center justify-center text-white font-extrabold text-lg shadow-lg">
+          <div className="col-span-1 flex flex-col gap-6 justify-center min-h-[420px]">
+            <div className="relative flex items-center justify-center w-full">
+              <div className="bg-white rounded-3xl p-8 shadow-lg border border-slate-200 min-h-[360px] w-full max-w-[620px] flex items-center justify-center">
+                <div className="flex items-center gap-6 w-full my-auto">
+                  <div className="w-16 h-16 rounded-full bg-green-600 flex items-center justify-center text-white font-extrabold text-lg shadow-lg shrink-0">
                     {steps[current].number}
                   </div>
 
-                  <div>
+                  <div className="flex-1 py-2">
                     <h3 className="text-2xl font-extrabold text-slate-900">{steps[current].title}</h3>
-                    <p className="mt-3 text-slate-600 text-base max-w-2xl">{steps[current].description}</p>
-                    <div className="mt-4 flex items-center gap-4">
+                    <p className="mt-3 text-slate-600 text-base max-w-2xl leading-relaxed">{steps[current].description}</p>
+                    <div className="mt-6 flex items-center gap-4">
                       <button
                         onClick={() => setCurrent((c) => Math.max(0, c - 1))}
                         className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-4 py-2 text-sm font-bold text-slate-700 hover:bg-slate-50"

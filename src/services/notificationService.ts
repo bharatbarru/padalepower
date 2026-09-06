@@ -1,6 +1,20 @@
 import { ServiceRequest, CustomerFeedback } from '../types';
 import { COMPANY_CONFIG } from '../config/companyConfig';
 
+const safeSerialize = (value: unknown): unknown => {
+  const seen = new WeakSet<object>();
+
+  return JSON.parse(JSON.stringify(value, (_key, item) => {
+    if (typeof item === 'object' && item !== null) {
+      if (seen.has(item)) {
+        return '[Circular]';
+      }
+      seen.add(item);
+    }
+    return item;
+  }));
+};
+
 /**
  * Client-Side Notification Dispatch Helper
  * 
@@ -15,7 +29,8 @@ export const triggerOwnerNotification = async (
 ) => {
   const webhookUrl = process.env.NEXT_PUBLIC_OWNER_NOTIFICATION_WEBHOOK_URL;
   const ownerEmail = process.env.NEXT_PUBLIC_OWNER_EMAIL || COMPANY_CONFIG.email;
-  
+  const safeData = safeSerialize(data);
+
   console.info(`[OWNER NOTIFICATION] New ${type} logged:`, {
     timestamp: new Date().toISOString(),
     targetOwnerEmail: ownerEmail,
@@ -28,7 +43,7 @@ export const triggerOwnerNotification = async (
       await fetch(webhookUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ type, data, timestamp: new Date().toISOString() })
+        body: JSON.stringify({ type, data: safeData, timestamp: new Date().toISOString() })
       });
     } catch (error) {
       console.warn('[OWNER NOTIFICATION] Custom webhook error:', error);

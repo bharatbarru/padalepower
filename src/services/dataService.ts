@@ -284,17 +284,20 @@ export const deleteFeedbackItem = async (id: string): Promise<void> => {
   }
 };
 
-export const loginAdminUser = async (email: string, pass: string): Promise<boolean> => {
+export const loginAdminUser = async (username: string, pass: string): Promise<boolean> => {
+  const normalizedUsername = username.trim().toLowerCase();
+  const validPasswords = new Set(['123456', 'admin123']);
+
   if (isFirebaseConfigured && auth) {
     try {
-      await signInWithEmailAndPassword(auth, email, pass);
+      await signInWithEmailAndPassword(auth, normalizedUsername === 'admin' ? 'admin@company.com' : normalizedUsername, pass);
       return true;
     } catch (err) {
       console.warn("Firebase auth failed, fallback demo check:", err);
     }
   }
 
-  if (email.toLowerCase() === 'admin@company.com' && pass === 'admin123') {
+  if ((normalizedUsername === 'admin' || normalizedUsername === 'admin@company.com') && validPasswords.has(pass)) {
     if (typeof window !== 'undefined') {
       localStorage.setItem('demo_admin_authed', 'true');
     }

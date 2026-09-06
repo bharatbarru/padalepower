@@ -15,7 +15,7 @@ export const AdminLoginModal: React.FC<AdminLoginModalProps> = ({
   onClose,
   onSuccess
 }) => {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
@@ -26,20 +26,20 @@ export const AdminLoginModal: React.FC<AdminLoginModalProps> = ({
     e.preventDefault();
     setErrorMsg('');
 
-    if (!email || !password) {
-      return setErrorMsg('Please enter both email and password.');
+    if (!username || !password) {
+      return setErrorMsg('Please enter both username and password.');
     }
 
     setLoading(true);
 
     try {
-      const success = await loginAdminUser(email, password);
+      const success = await loginAdminUser(username, password);
       if (success) {
         setLoading(false);
         onSuccess();
       } else {
         setLoading(false);
-        setErrorMsg('Invalid admin credentials. (Demo Mode: admin@company.com / admin123)');
+        setErrorMsg('Invalid admin credentials. Use admin / 123456');
       }
     } catch (err: unknown) {
       console.error(err);
@@ -79,15 +79,15 @@ export const AdminLoginModal: React.FC<AdminLoginModalProps> = ({
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
             <label className="block text-xs font-bold text-slate-700 mb-1">
-              Owner Email
+              Username
             </label>
             <div className="relative">
               <input
-                type="email"
+                type="text"
                 required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="admin@company.com"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                placeholder="admin"
                 className="w-full bg-slate-50 border border-slate-200 focus:border-green-600 rounded-xl pl-9 pr-3 py-2.5 text-sm text-slate-900 focus:outline-none"
               />
               <Mail className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
@@ -113,9 +113,9 @@ export const AdminLoginModal: React.FC<AdminLoginModalProps> = ({
 
           {/* Demo Credentials Hint */}
           <div className="p-3 bg-yellow-50 border border-yellow-200 rounded-xl text-[11px] text-slate-800 font-medium">
-            <span className="font-bold text-slate-900">Demo Login Mode:</span>
-            <br />Email: <code className="font-bold text-green-800">admin@company.com</code>
-            <br />Password: <code className="font-bold text-green-800">admin123</code>
+            <span className="font-bold text-slate-900">Admin Credentials:</span>
+            <br />Username: <code className="font-bold text-green-800">admin</code>
+            <br />Password: <code className="font-bold text-green-800">123456</code>
           </div>
 
           <button

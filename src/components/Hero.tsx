@@ -83,7 +83,7 @@ export const Hero: React.FC<HeroProps> = ({ onRequestService }) => {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent" />
                 <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[20px]">
                   <Image
-                    src="/images/hero_engine_indian.png"
+                    src="/images/hero.jpeg"
                     alt="PADALA E-POWER Industrial Generator Engine Servicing Facility in Visakhapatnam"
                     fill
                     priority

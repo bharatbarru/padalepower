@@ -32,7 +32,7 @@ export const AboutUs: React.FC = () => {
             <div className="relative rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-xl p-2 group">
               <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden">
                 <Image
-                  src="/images/about_engine_indian.png"
+                  src="/images/about.JPG"
                   alt="PADALA E-POWER Generator Engine Maintenance Technicians Team in Visakhapatnam Workshop"
                   fill
                   loading="lazy"

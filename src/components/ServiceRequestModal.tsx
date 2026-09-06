@@ -28,6 +28,7 @@ export const ServiceRequestModal: React.FC<ServiceRequestModalProps> = ({
   const [preferredDate, setPreferredDate] = useState('');
   const [problemDescription, setProblemDescription] = useState('');
   const [preferredContact, setPreferredContact] = useState<'phone' | 'email' | 'whatsapp'>('phone');
+  const [honeypot, setHoneypot] = useState('');
 
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
@@ -38,6 +39,8 @@ export const ServiceRequestModal: React.FC<ServiceRequestModalProps> = ({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMsg('');
+
+    if (honeypot) return setErrorMsg('Spam check failed. Please try again.');
 
     // Only Full Name and Phone Number are required!
     if (!fullName.trim()) return setErrorMsg('Please enter your full name.');
@@ -92,6 +95,7 @@ export const ServiceRequestModal: React.FC<ServiceRequestModalProps> = ({
     setProblemDescription('');
     setSuccess(false);
     setErrorMsg('');
+    setHoneypot('');
     onClose();
   };
 
@@ -175,6 +179,20 @@ export const ServiceRequestModal: React.FC<ServiceRequestModalProps> = ({
                 <span>{errorMsg}</span>
               </div>
             )}
+
+            <div
+              aria-hidden="true"
+              className="hidden"
+              style={{ position: 'absolute', left: '-9999px', pointerEvents: 'none' }}
+            >
+              <input
+                type="text"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+                tabIndex={-1}
+                autoComplete="off"
+              />
+            </div>
 
             {/* Input Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

@@ -15,6 +15,7 @@ export const FeedbackSection: React.FC = () => {
   const [hoverRating, setHoverRating] = useState(0);
   const [feedbackText, setFeedbackText] = useState('');
   const [testimonialPermission, setTestimonialPermission] = useState(true);
+  const [honeypot, setHoneypot] = useState('');
 
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
@@ -24,6 +25,7 @@ export const FeedbackSection: React.FC = () => {
     e.preventDefault();
     setErrorMsg('');
 
+    if (honeypot) return setErrorMsg('Spam check failed. Please try again.');
     if (!name.trim()) return setErrorMsg('Please enter your name.');
     if (!contact.trim()) return setErrorMsg('Please enter your contact email or phone.');
     if (!feedbackText.trim()) return setErrorMsg('Please share your feedback comments.');
@@ -56,7 +58,8 @@ export const FeedbackSection: React.FC = () => {
 
       setSuccessMsg(true);
       setLoading(false);
-      
+      setHoneypot('');
+
       // Reset
       setName('');
       setContact('');
@@ -114,6 +117,20 @@ export const FeedbackSection: React.FC = () => {
                   <span>{errorMsg}</span>
                 </div>
               )}
+
+              <div
+                aria-hidden="true"
+                className="hidden"
+                style={{ position: 'absolute', left: '-9999px', pointerEvents: 'none' }}
+              >
+                <input
+                  type="text"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
 
               {/* Star Rating Interactive Selector */}
               <div className="text-center space-y-2 pb-6 border-b border-slate-100">
