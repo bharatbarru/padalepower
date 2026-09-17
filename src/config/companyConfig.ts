@@ -21,12 +21,12 @@ export const COMPANY_CONFIG = {
   twitterHandle: '@padalaepower',
   
   // Official Phone & WhatsApp Numbers
-  phone: "+91 96031 09512",
-  phoneAlt: "+91 96031 09512",
-  phoneClean: "+919603109512",
+  phone: "+91 9701612346",
+  phoneAlt: "+91 9701612346",
+  phoneClean: "+919701612346",
   
-  whatsapp: "+91 96031 09512",
-  whatsappClean: "919603109512",
+  whatsapp: "+91 9701612346",
+  whatsappClean: "919701612346",
   
   email: "services@padalaepower.in",
   emailSupport: "services@padalaepower.in",
